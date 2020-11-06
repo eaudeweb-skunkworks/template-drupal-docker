@@ -1,0 +1,49 @@
+# OS
+*.DS_Store
+.AppleDouble
+.LSOverride
+
+# Development environment
+.idea/
+
+# Deployment
+.env
+
+# Ignore configuration files that may contain sensitive information
+/web/sites/*/*settings*.php
+/web/sites/*/*services*.yml
+
+# Ignore user-generated content
+/private
+/web/sites/*/files
+/web/sites/*/translations
+
+# Ignore testing related files
+/web/sites/simpletest
+
+# Ignore Drupal core & libraries
+/vendor
+/web/core
+/web/.csslintrc
+/web/.editorconfig
+/web/.eslintignore
+/web/.eslintrc.json
+/web/.gitattributes
+/web/.ht.router.php
+/web/.htaccess
+/web/autoload.php
+/web/example.gitignore
+/web/index.php
+/web/INSTALL.txt
+/web/LICENSE.txt
+/web/README.txt
+/web/robots.txt
+/web/update.php
+/web/web.config
+/web/modules/README.txt
+/web/profiles/README.txt
+/web/sites/README.txt
+/web/sites/example.sites.php
+/web/sites/example.settings.local.php
+/web/sites/development.services.yml
+/web/themes/README.txt
