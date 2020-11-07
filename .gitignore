@@ -41,6 +41,7 @@
 /web/update.php
 /web/web.config
 /web/modules/README.txt
+/web/modules/contrib
 /web/profiles/README.txt
 /web/sites/README.txt
 /web/sites/example.sites.php
