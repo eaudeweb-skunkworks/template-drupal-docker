@@ -9,6 +9,9 @@
 # Deployment
 .env
 
+# Docker
+docker-compose.override.yml
+
 # Ignore configuration files that may contain sensitive information
 /web/sites/*/*settings*.php
 /web/sites/*/*services*.yml
