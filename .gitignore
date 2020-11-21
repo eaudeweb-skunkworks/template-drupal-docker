@@ -25,8 +25,6 @@ docker-compose.override.yml
 /web/sites/simpletest
 
 # Ignore Drupal core & libraries
-/vendor
-/web/core
 /web/.csslintrc
 /web/.editorconfig
 /web/.eslintignore
@@ -43,11 +41,3 @@ docker-compose.override.yml
 /web/robots.txt
 /web/update.php
 /web/web.config
-/web/modules/README.txt
-/web/modules/contrib
-/web/profiles/README.txt
-/web/sites/README.txt
-/web/sites/example.sites.php
-/web/sites/example.settings.local.php
-/web/sites/development.services.yml
-/web/themes/README.txt
