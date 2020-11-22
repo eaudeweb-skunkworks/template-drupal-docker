@@ -1,2 +1,1 @@
-# template-drupal-docker
-A 
+# Drupal Docker stack template
