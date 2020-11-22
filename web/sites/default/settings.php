@@ -261,7 +261,7 @@ $databases = [];
  * directory in the public files path. The setting below allows you to set
  * its location.
  */
-# $settings['config_sync_directory'] = '/directory/outside/webroot';
+$settings['config_sync_directory'] = '../config/sync';
 
 /**
  * Settings:
@@ -803,9 +803,12 @@ $databases['default']['default'] = [
   'collation' => 'utf8mb4_general_ci',
 ];
 
+$settings['hash_salt'] = getenv('DRUPAL_HASH_SALT');
+
+if (!empty(getenv('DRUPAL_TRUSTED_HOST_PATTERNS'))) {
+  $settings['trusted_host_patterns'] = explode(';', getenv('TRUSTED_HOST_PATTERNS'));
+}
 
 if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
   include $app_root . '/' . $site_path . '/settings.local.php';
 }
-
-$settings['hash_salt'] = getenv('DRUPAL_HASH_SALT');
