@@ -1,5 +1,4 @@
 private
-vendor
 web/*/README.txt
 web/sites/default/files
 web/themes/README.txt
@@ -8,7 +7,6 @@ web/.csslintrc
 web/.eslintignore
 web/.eslintrc.json
 web/example.gitignore
-.htaccess
 web/.ht.router.php
 web/INSTALL.txt
 web/README.txt
