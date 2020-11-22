@@ -19,6 +19,7 @@
         "drupal/core-composer-scaffold": "^8.8",
         "drupal/core-project-message": "^8.8",
         "drupal/core-recommended": "^8.8",
+        "drupal/smtp": "^1.0",
         "drush/drush": "^10.3",
         "eaudeweb/heavy-lifter": "^1.3"
     },

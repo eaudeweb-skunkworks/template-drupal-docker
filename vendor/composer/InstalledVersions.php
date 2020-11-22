@@ -19,7 +19,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'c3ab3d21a07bc3dc29d1a05db92e1e0f34dba76a',
+    'reference' => '05e901042ed8f5b06dcbd5df8336b82f81523f29',
     'name' => 'drupal/recommended-project',
   ),
   'versions' => 
@@ -897,7 +897,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'c3ab3d21a07bc3dc29d1a05db92e1e0f34dba76a',
+      'reference' => '05e901042ed8f5b06dcbd5df8336b82f81523f29',
     ),
     'drupal/responsive_image' => 
     array (
@@ -954,6 +954,15 @@ private static $installed = array (
       array (
         0 => '8.9.9',
       ),
+    ),
+    'drupal/smtp' => 
+    array (
+      'pretty_version' => '1.0.0',
+      'version' => '1.0.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '8.x-1.0',
     ),
     'drupal/standard' => 
     array (
@@ -1287,6 +1296,15 @@ private static $installed = array (
       array (
       ),
       'reference' => 'dbb42a5a0e45f3adcf99babfb2a1ba77b8ac36a7',
+    ),
+    'phpmailer/phpmailer' => 
+    array (
+      'pretty_version' => 'v6.1.8',
+      'version' => '6.1.8.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '917ab212fa00dc6eacbb26e8bc387ebe40993bc1',
     ),
     'psr/container' => 
     array (
