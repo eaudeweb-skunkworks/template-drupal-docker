@@ -809,6 +809,16 @@ if (!empty(getenv('DRUPAL_TRUSTED_HOST_PATTERNS'))) {
   $settings['trusted_host_patterns'] = explode(';', getenv('TRUSTED_HOST_PATTERNS'));
 }
 
+$smtp_host = getenv('DRUPAL_SMTP_HOST');
+if (!empty($smtp_host)) {
+  $config['smtp.settings']['smtp_on'] = TRUE;
+  $config['smtp.settings']['smtp_host'] = $smtp_host;
+  $config['smtp.settings']['smtp_port'] = getenv('DRUPAL_SMTP_PORT') ?: '1025';
+  $config['smtp.settings']['smtp_protocol'] = getenv('DRUPAL_SMTP_PROTOCOL') ?: 'standard'; // Options: standard, ssl, tls
+  $config['smtp.settings']['smtp_username'] = getenv('DRUPAL_SMTP_USER');
+  $config['smtp.settings']['smtp_password'] = getenv('DRUPAL_SMTP_PASSWORD');
+}
+
 if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
   include $app_root . '/' . $site_path . '/settings.local.php';
 }
