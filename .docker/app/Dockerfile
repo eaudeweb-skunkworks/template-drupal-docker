@@ -8,4 +8,4 @@ COPY composer.lock composer.lock
 COPY config /var/www/html/config
 COPY vendor /var/www/html/vendor
 COPY web /var/www/html/web
-RUN chown daemon:daemon /var/www/html/web/sites/default/settings.php
+RUN mkdir -p /var/www/html/web/sites/default/files && chown daemon:daemon /var/www/html/web/sites/default/files && chown daemon:daemon /var/www/html/web/sites/default/settings.php
