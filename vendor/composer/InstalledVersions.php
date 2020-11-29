@@ -19,7 +19,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '05e901042ed8f5b06dcbd5df8336b82f81523f29',
+    'reference' => 'd4174d536a6e5549c69353cc98908100fbe262ac',
     'name' => 'drupal/recommended-project',
   ),
   'versions' => 
@@ -445,8 +445,8 @@ private static $installed = array (
     ),
     'drupal/core-composer-scaffold' => 
     array (
-      'pretty_version' => '8.9.8',
-      'version' => '8.9.8.0',
+      'pretty_version' => '8.9.9',
+      'version' => '8.9.9.0',
       'aliases' => 
       array (
       ),
@@ -542,15 +542,6 @@ private static $installed = array (
       array (
         0 => '8.9.9',
       ),
-    ),
-    'drupal/core-project-message' => 
-    array (
-      'pretty_version' => '8.9.8',
-      'version' => '8.9.8.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '3f8fa28128f1fef68ee0e6647011a543ef92be5b',
     ),
     'drupal/core-proxy-builder' => 
     array (
@@ -897,7 +888,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '05e901042ed8f5b06dcbd5df8336b82f81523f29',
+      'reference' => 'd4174d536a6e5549c69353cc98908100fbe262ac',
     ),
     'drupal/responsive_image' => 
     array (

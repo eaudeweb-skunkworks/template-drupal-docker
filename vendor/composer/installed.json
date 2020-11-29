@@ -1942,8 +1942,8 @@
         },
         {
             "name": "drupal/core-composer-scaffold",
-            "version": "8.9.8",
-            "version_normalized": "8.9.8.0",
+            "version": "8.9.9",
+            "version_normalized": "8.9.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-composer-scaffold.git",
@@ -1965,6 +1965,7 @@
             "require-dev": {
                 "composer/composer": "^1.8@stable"
             },
+            "time": "2020-08-07T22:30:30+00:00",
             "type": "composer-plugin",
             "extra": {
                 "class": "Drupal\\Composer\\Plugin\\Scaffold\\Plugin",
@@ -1978,6 +1979,7 @@
                     "Drupal\\Composer\\Plugin\\Scaffold\\": ""
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0-or-later"
             ],
@@ -1986,46 +1988,10 @@
             "keywords": [
                 "drupal"
             ],
+            "support": {
+                "source": "https://github.com/drupal/core-composer-scaffold/tree/8.9.4"
+            },
             "install-path": "../drupal/core-composer-scaffold"
-        },
-        {
-            "name": "drupal/core-project-message",
-            "version": "8.9.8",
-            "version_normalized": "8.9.8.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/drupal/core-project-message.git",
-                "reference": "3f8fa28128f1fef68ee0e6647011a543ef92be5b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core-project-message/zipball/3f8fa28128f1fef68ee0e6647011a543ef92be5b",
-                "reference": "3f8fa28128f1fef68ee0e6647011a543ef92be5b",
-                "shasum": ""
-            },
-            "require": {
-                "composer-plugin-api": "^1.1 || ^2",
-                "php": ">=7.0.8"
-            },
-            "type": "composer-plugin",
-            "extra": {
-                "class": "Drupal\\Composer\\Plugin\\ProjectMessage\\MessagePlugin"
-            },
-            "installation-source": "dist",
-            "autoload": {
-                "psr-4": {
-                    "Drupal\\Composer\\Plugin\\ProjectMessage\\": "."
-                }
-            },
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "description": "Adds a message after Composer installation.",
-            "homepage": "https://www.drupal.org/project/drupal",
-            "keywords": [
-                "drupal"
-            ],
-            "install-path": "../drupal/core-project-message"
         },
         {
             "name": "drupal/core-recommended",

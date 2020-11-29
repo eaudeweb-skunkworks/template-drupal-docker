@@ -1,1 +1,0 @@
-Current site configuration
