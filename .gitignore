@@ -33,8 +33,11 @@ docker-compose.override.yml
 /web/.htaccess
 /web/.ht.router.php
 /web/core
+/web/modules/.gitignore
 /web/modules/contrib
+/web/profiles/.gitignore
 /web/profiles/contrib
+/web/themes/.gitignore
 /web/themes/contrib
 /web/autoload.php
 /web/example.gitignore
@@ -42,6 +45,7 @@ docker-compose.override.yml
 /web/INSTALL.txt
 /web/LICENSE.txt
 /web/README.txt
+/web/sites/.gitignore
 /web/robots.txt
 /web/update.php
 /web/web.config
