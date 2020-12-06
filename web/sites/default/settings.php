@@ -88,7 +88,16 @@
  * ];
  * @endcode
  */
-$databases = [];
+$databases['default']['default'] = [
+  'database' => getenv('MYSQL_DATABASE'),
+  'username' => getenv('MYSQL_USER'),
+  'password' => getenv('MYSQL_PASSWORD'),
+  'host' => getenv('MYSQL_HOST'),
+  'port' => getenv('MYSQL_PORT'),
+  'driver' => 'mysql',
+  'prefix' => '',
+  'collation' => 'utf8mb4_general_ci',
+];
 
 /**
  * Customizing database settings.
@@ -290,7 +299,7 @@ $settings['config_sync_directory'] = '../config/sync';
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = '';
+$settings['hash_salt'] = file_get_contents(getenv('DRUPAL_HASH_SALT_FILE_PATH_DEFAULT'));
 
 /**
  * Deployment identifier.
@@ -557,7 +566,7 @@ $settings['file_private_path'] = '/data/private';
  *
  * @see \Drupal\Component\FileSystem\FileSystem::getOsTemporaryDirectory()
  */
-# $settings['file_temp_path'] = '/tmp';
+$settings['file_temp_path'] = '/tmp';
 
 /**
  * Session write interval:
@@ -730,6 +739,9 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
  * will allow the site to run off of all variants of example.com and
  * example.org, with all subdomains included.
  */
+if (!empty(getenv('DRUPAL_TRUSTED_HOST_PATTERNS'))) {
+  $settings['trusted_host_patterns'] = explode(';', getenv('TRUSTED_HOST_PATTERNS'));
+}
 
 /**
  * The default list of directories that will be ignored by Drupal's file API.
@@ -803,12 +815,7 @@ $databases['default']['default'] = [
   'collation' => 'utf8mb4_general_ci',
 ];
 
-$settings['hash_salt'] = getenv('DRUPAL_HASH_SALT');
-
-if (!empty(getenv('DRUPAL_TRUSTED_HOST_PATTERNS'))) {
-  $settings['trusted_host_patterns'] = explode(';', getenv('TRUSTED_HOST_PATTERNS'));
-}
-
+# SMTP module
 $smtp_host = getenv('DRUPAL_SMTP_HOST');
 if (!empty($smtp_host)) {
   $config['smtp.settings']['smtp_on'] = TRUE;
@@ -818,6 +825,27 @@ if (!empty($smtp_host)) {
   $config['smtp.settings']['smtp_username'] = getenv('DRUPAL_SMTP_USER');
   $config['smtp.settings']['smtp_password'] = getenv('DRUPAL_SMTP_PASSWORD');
 }
+
+# Google Analytics
+$config['google_analytics.settings']['account'] = 'UA-';
+
+# Re-Captcha configuration
+$config['recaptcha.settings']['site_key'] = '';
+$config['recaptcha.settings']['secret_key'] = '';
+
+# Solr default server configuration
+$config['search_api.server.solr_server'] = [
+  'backend_config' => [
+    'connector' => getenv('SOLR_DEFAULT_SERVER_CONNECTOR'),
+    'connector_config' => [
+      'scheme' => getenv('SOLR_DEFAULT_SERVER_SCHEME'),
+      'host' => getenv('SOLR_DEFAULT_SERVER_HOST'),
+      'path' => getenv('SOLR_DEFAULT_SERVER_PATH'),
+      'core' => getenv('SOLR_DEFAULT_SERVER_CORE'),
+      'port' => getenv('SOLR_DEFAULT_SERVER_PORT'),
+    ],
+  ],
+];
 
 if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
   include $app_root . '/' . $site_path . '/settings.local.php';
