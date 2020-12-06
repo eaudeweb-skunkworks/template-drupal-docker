@@ -1,23 +1,17 @@
 version: '3.2'
 
 services:
-  web:
-    container_name: tpl_web
-    restart: unless-stopped
-    ports:
-      - "127.0.0.1:8080:80"
-    volumes:
-      - sites_default_files:/var/www/html/web/sites/default/files
 
   app:
     container_name: tpl_app
     restart: unless-stopped
     volumes:
       - ./private:/data/private:rw
-      - sites_default_files:/var/www/html/web/sites/default/files
+      - ./web/sites/default/files:/var/www/html/web/sites/default/files
 
   db:
     container_name: tpl_db
+    restart: unless-stopped
 
-volumes:
-  sites_default_files:
+# volumes:
+#   sites_default_files:
