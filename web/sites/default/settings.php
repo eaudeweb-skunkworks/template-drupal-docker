@@ -553,7 +553,9 @@ if ($settings['hash_salt']) {
  * See https://www.drupal.org/documentation/modules/file for more information
  * about securing private files.
  */
-$settings['file_private_path'] = '/data/private';
+if (!empty(getenv('DRUPAL_PRIVATE_FILES_PATH'))) {
+  $settings['file_private_path'] = getenv('DRUPAL_PRIVATE_FILES_PATH');
+}
 
 /**
  * Temporary file path:
@@ -567,6 +569,7 @@ $settings['file_private_path'] = '/data/private';
  * @see \Drupal\Component\FileSystem\FileSystem::getOsTemporaryDirectory()
  */
 $settings['file_temp_path'] = '/tmp';
+$config['system.file']['path']['temporary'] = '/tmp';
 
 /**
  * Session write interval:
@@ -816,36 +819,63 @@ $databases['default']['default'] = [
 ];
 
 # SMTP module
-$smtp_host = getenv('DRUPAL_SMTP_HOST');
-if (!empty($smtp_host)) {
+if (!empty(getenv('DRUPAL_SMTP_HOST_ON'))) {
   $config['smtp.settings']['smtp_on'] = TRUE;
-  $config['smtp.settings']['smtp_host'] = $smtp_host;
-  $config['smtp.settings']['smtp_port'] = getenv('DRUPAL_SMTP_PORT') ?: '1025';
-  $config['smtp.settings']['smtp_protocol'] = getenv('DRUPAL_SMTP_PROTOCOL') ?: 'standard'; // Options: standard, ssl, tls
+}
+if (!empty(getenv('DRUPAL_SMTP_HOST'))) {
+  $config['smtp.settings']['smtp_host'] = getenv('DRUPAL_SMTP_HOST');
+}
+if (!empty(getenv('DRUPAL_SMTP_PORT'))) {
+  $config['smtp.settings']['smtp_port'] = getenv('DRUPAL_SMTP_PORT');
+}
+if (!empty(getenv('DRUPAL_SMTP_PROTOCOL'))) {
+  $config['smtp.settings']['smtp_protocol'] = getenv('DRUPAL_SMTP_PROTOCOL');
+}
+if (!empty(getenv('DRUPAL_SMTP_USER'))) {
   $config['smtp.settings']['smtp_username'] = getenv('DRUPAL_SMTP_USER');
+}
+if (!empty(getenv('DRUPAL_SMTP_PASSWORD'))) {
   $config['smtp.settings']['smtp_password'] = getenv('DRUPAL_SMTP_PASSWORD');
 }
 
 # Google Analytics
-$config['google_analytics.settings']['account'] = 'UA-';
+if (!empty(getenv('GOOGLE_ANALYTICS_ACCOUNT'))) {
+  $config['google_analytics.settings']['account'] = getenv('GOOGLE_ANALYTICS_ACCOUNT');
+}
 
 # Re-Captcha configuration
-$config['recaptcha.settings']['site_key'] = '';
-$config['recaptcha.settings']['secret_key'] = '';
+if (!empty(getenv('RECAPTCHA_SITE_KEY'))) {
+  $config['recaptcha.settings']['site_key'] = getenv('RECAPTCHA_SITE_KEY');
+}
+if (!empty(getenv('RECAPTCHA_SECRET_KEY'))) {
+  $config['recaptcha.settings']['secret_key'] = getenv('RECAPTCHA_SECRET_KEY');
+}
 
 # Solr default server configuration
-$config['search_api.server.solr_server'] = [
-  'backend_config' => [
-    'connector' => getenv('SOLR_DEFAULT_SERVER_CONNECTOR'),
-    'connector_config' => [
-      'scheme' => getenv('SOLR_DEFAULT_SERVER_SCHEME'),
-      'host' => getenv('SOLR_DEFAULT_SERVER_HOST'),
-      'path' => getenv('SOLR_DEFAULT_SERVER_PATH'),
-      'core' => getenv('SOLR_DEFAULT_SERVER_CORE'),
-      'port' => getenv('SOLR_DEFAULT_SERVER_PORT'),
-    ],
-  ],
-];
+if (!empty(getenv('SOLR_DEFAULT_SERVER_CONNECTOR'))) {
+  $config['search_api.server.solr_server']['backend_config']['connector'] = getenv('SOLR_DEFAULT_SERVER_CONNECTOR');
+}
+if (!empty(getenv('SOLR_DEFAULT_SERVER_SCHEME'))) {
+  $config['search_api.server.solr_server']['backend_config']['connector_config']['scheme'] = getenv('SOLR_DEFAULT_SERVER_SCHEME');
+}
+if (!empty(getenv('SOLR_DEFAULT_SERVER_HOST'))) {
+  $config['search_api.server.solr_server']['backend_config']['connector_config']['host'] = getenv('SOLR_DEFAULT_SERVER_HOST');
+}
+if (!empty(getenv('SOLR_DEFAULT_SERVER_PATH'))) {
+  $config['search_api.server.solr_server']['backend_config']['connector_config']['path'] = getenv('SOLR_DEFAULT_SERVER_PATH');
+}
+if (!empty(getenv('SOLR_DEFAULT_SERVER_CORE'))) {
+  $config['search_api.server.solr_server']['backend_config']['connector_config']['core'] = getenv('SOLR_DEFAULT_SERVER_CORE');
+}
+if (!empty(getenv('SOLR_DEFAULT_SERVER_PORT'))) {
+  $config['search_api.server.solr_server']['backend_config']['connector_config']['port'] = getenv('SOLR_DEFAULT_SERVER_PORT');
+}
+if (!empty(getenv('SOLR_DEFAULT_SERVER_USERNAME'))) {
+  $config['search_api.server.solr_server']['backend_config']['connector_config']['username'] = getenv('SOLR_DEFAULT_SERVER_USERNAME');
+}
+if (!empty(getenv('SOLR_DEFAULT_SERVER_PASSWORD'))) {
+  $config['search_api.server.solr_server']['backend_config']['connector_config']['password'] = getenv('SOLR_DEFAULT_SERVER_PASSWORD');
+}
 
 if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
   include $app_root . '/' . $site_path . '/settings.local.php';
