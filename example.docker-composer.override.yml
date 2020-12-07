@@ -7,11 +7,21 @@ services:
     restart: unless-stopped
     volumes:
       - ./private:/data/private:rw
+      - ./drupal-hash-salt-default.txt:/data/drupal-hash-salt-default.txt
       - ./web/sites/default/files:/var/www/html/web/sites/default/files
+    ports:
+      - "127.0.0.1:8080:80"
 
   db:
     container_name: tpl_db
     restart: unless-stopped
+
+  mail:
+    image: mailhog/mailhog
+    container_name: tpl_mail
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8081:8025"
 
 # volumes:
 #   sites_default_files:

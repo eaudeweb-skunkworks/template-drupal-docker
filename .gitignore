@@ -11,6 +11,7 @@
 
 # Docker
 docker-compose.override.yml
+drupal-hash-salt-default.txt
 
 # Ignore configuration files that may contain sensitive information
 /web/sites/*/default.settings.php
