@@ -6,8 +6,8 @@ COPY web web
 # Workaround until https://helpdesk.eaudeweb.ro/issues/9184 is fixed
 COPY example.robo.yml robo.yml
 
-RUN composer self-update --2 && composer install && apk add sudo
+# We need sudo for CRON, .env for composer errors
+RUN composer self-update --2 && composer install && touch .env && apk add sudo
 
 # Remove post-install useless stuff
-RUN rm -rf /root/.composer web/*.txt web/example.gitignore web/modules/README.txt web/themes/README.txt web/profiles/README.txt web/sites/README.txt web/sites/example.settings.local.php web/sites/default/settings.local.php && \
-    echo "* * * * * cd /usr/share/nginx/html && sudo -E -u www-data ./vendor/bin/drush core:cron --uri=http://localhost:8080" > /etc/crontabs/root
+RUN rm -rf /root/.composer web/*.txt web/example.gitignore web/modules/README.txt web/themes/README.txt web/profiles/README.txt web/sites/README.txt web/sites/example.settings.local.php web/sites/default/settings.local.php
