@@ -1,5 +1,6 @@
 FROM cristiroma/nginx-php-fpm:php73
 
+COPY .docker/app/heavy-lifter.conf /etc/nginx/conf.d/snippets/heavy-lifter.conf
 COPY load.environment.php composer.json composer.lock RoboFile.php /usr/share/nginx/html/
 COPY config config
 COPY web web
