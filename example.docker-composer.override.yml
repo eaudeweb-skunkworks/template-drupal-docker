@@ -2,6 +2,11 @@ version: '3.2'
 
 services:
 
+  cache:
+    container_name: tpl_varnish
+    ports:
+      - "127.0.0.1:8090:80"
+
   app:
     container_name: tpl_app
     restart: unless-stopped

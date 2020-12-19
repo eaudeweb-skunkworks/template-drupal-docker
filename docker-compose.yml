@@ -2,6 +2,11 @@ version: '3.2'
 
 services:
 
+  cache:
+    image: cristiroma/varnish-drupal:d8
+    depends_on:
+      - app
+
   app:
     build:
       context: .
