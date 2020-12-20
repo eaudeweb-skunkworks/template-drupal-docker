@@ -7,14 +7,14 @@ sites:
       password: password
     sql:
       dump:
-        location: web/sync/database.sql
+        location: web/sites/default/files/heavy-lifter/database.sql
       sync:
-        source: https://www.wildlex.org/sync/database.sql.gz
+        source: https://example.com/sites/default/files/heavy-lifter/database.sql.gz
     files:
       dump:
-        location: web/sync/files.tar.gz
+        location: web/sites/default/files/heavy-lifter/files.tar.gz
       sync:
-        source: https://www.wildlex.org/sync/files.tar.gz
+        source: https://example.com/sites/default/files/heavy-lifter/files.tar.gz
     site:
       update:
         excluded_commands: []

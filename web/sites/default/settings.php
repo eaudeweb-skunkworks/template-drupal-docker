@@ -877,6 +877,42 @@ if (!empty(getenv('SOLR_DEFAULT_SERVER_PASSWORD'))) {
   $config['search_api.server.solr_server']['backend_config']['connector_config']['password'] = getenv('SOLR_DEFAULT_SERVER_PASSWORD');
 }
 
+# Varnish integration
+if (!empty(getenv('VARNISH_SCHEME'))) {
+  $config['varnish_purger.settings.5b5238f42b']['scheme'] = getenv('VARNISH_SCHEME');
+}
+if (!empty(getenv('VARNISH_HOSTNAME'))) {
+  $config['varnish_purger.settings.5b5238f42b']['hostname'] = getenv('VARNISH_HOSTNAME');
+}
+if (!empty(getenv('VARNISH_PORT'))) {
+  $config['varnish_purger.settings.5b5238f42b']['port'] = getenv('VARNISH_PORT');
+}
+
+# Memcached integration
+if (!empty(getenv('MEMCACHE_ACTIVE'))) {
+  $setting['memcache']['debug'] = getenv('MEMCACHE_DEBUG') ?? FALSE;;
+  $settings['memcache']['key_prefix'] = getenv('MEMCACHE_KEY_PREFIX') ?? '';
+  $settings['memcache']['key_hash_algorithm'] = 'sha1';
+  $settings['memcache']['servers'] = [
+    getenv('MEMCACHE_SERVER') => 'default'
+  ];
+  # Bin configuration
+  $settings['memcache']['bins'] = ['default' => 'default'];
+  $settings['cache']['bins']['bootstrap'] = 'cache.backend.memcache';
+  $settings['cache']['bins']['config'] = 'cache.backend.memcache';
+  $settings['cache']['bins']['container'] = 'cache.backend.memcache';
+  # $settings['cache']['bins']['data'] = 'cache.backend.memcache';
+  # $settings['cache']['bins']['discovery'] = 'cache.backend.memcache';
+  $settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.memcache';
+  # $settings['cache']['bins']['entity'] = 'cache.backend.memcache';
+  # $settings['cache']['bins']['menu'] = 'cache.backend.memcache';
+  $settings['cache']['bins']['page'] = 'cache.backend.memcache';
+  $settings['cache']['bins']['render'] = 'cache.backend.memcache';
+  $settings['cache']['bins']['rest'] = 'cache.backend.memcache';
+  $settings['cache']['bins']['signal'] = 'cache.backend.memcache';
+  $settings['cache']['bins']['toolbar'] = 'cache.backend.memcache';
+}
+
 if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
   include $app_root . '/' . $site_path . '/settings.local.php';
 }
