@@ -33,5 +33,5 @@ jobs:
         name: Push image
         run: |
           VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
-          docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
-          docker push $IMAGE_ID:$VERSION
+          docker tag $IMAGE_NAME:$VERSION
+          docker push $IMAGE_NAME:$VERSION
