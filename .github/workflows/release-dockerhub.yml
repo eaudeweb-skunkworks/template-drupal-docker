@@ -1,4 +1,5 @@
-name: Release DockerHub image
+author: Cristian Romanescu
+description: 'Build the docker image locally and push to DockerHub'
 
 on:
   push:
