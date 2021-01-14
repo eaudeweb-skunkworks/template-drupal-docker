@@ -853,28 +853,28 @@ if (!empty(getenv('RECAPTCHA_SECRET_KEY'))) {
 
 # Solr default server configuration
 if (!empty(getenv('SOLR_DEFAULT_SERVER_CONNECTOR'))) {
-  $config['search_api.server.solr_server']['backend_config']['connector'] = getenv('SOLR_DEFAULT_SERVER_CONNECTOR');
+  $config['search_api.server.solr']['backend_config']['connector'] = getenv('SOLR_DEFAULT_SERVER_CONNECTOR');
 }
 if (!empty(getenv('SOLR_DEFAULT_SERVER_SCHEME'))) {
-  $config['search_api.server.solr_server']['backend_config']['connector_config']['scheme'] = getenv('SOLR_DEFAULT_SERVER_SCHEME');
+  $config['search_api.server.solr']['backend_config']['connector_config']['scheme'] = getenv('SOLR_DEFAULT_SERVER_SCHEME');
 }
 if (!empty(getenv('SOLR_DEFAULT_SERVER_HOST'))) {
-  $config['search_api.server.solr_server']['backend_config']['connector_config']['host'] = getenv('SOLR_DEFAULT_SERVER_HOST');
+  $config['search_api.server.solr']['backend_config']['connector_config']['host'] = getenv('SOLR_DEFAULT_SERVER_HOST');
 }
 if (!empty(getenv('SOLR_DEFAULT_SERVER_PATH'))) {
-  $config['search_api.server.solr_server']['backend_config']['connector_config']['path'] = getenv('SOLR_DEFAULT_SERVER_PATH');
+  $config['search_api.server.solr']['backend_config']['connector_config']['path'] = getenv('SOLR_DEFAULT_SERVER_PATH');
 }
 if (!empty(getenv('SOLR_DEFAULT_SERVER_CORE'))) {
-  $config['search_api.server.solr_server']['backend_config']['connector_config']['core'] = getenv('SOLR_DEFAULT_SERVER_CORE');
+  $config['search_api.server.solr']['backend_config']['connector_config']['core'] = getenv('SOLR_DEFAULT_SERVER_CORE');
 }
 if (!empty(getenv('SOLR_DEFAULT_SERVER_PORT'))) {
-  $config['search_api.server.solr_server']['backend_config']['connector_config']['port'] = getenv('SOLR_DEFAULT_SERVER_PORT');
+  $config['search_api.server.solr']['backend_config']['connector_config']['port'] = getenv('SOLR_DEFAULT_SERVER_PORT');
 }
 if (!empty(getenv('SOLR_DEFAULT_SERVER_USERNAME'))) {
-  $config['search_api.server.solr_server']['backend_config']['connector_config']['username'] = getenv('SOLR_DEFAULT_SERVER_USERNAME');
+  $config['search_api.server.solr']['backend_config']['connector_config']['username'] = getenv('SOLR_DEFAULT_SERVER_USERNAME');
 }
 if (!empty(getenv('SOLR_DEFAULT_SERVER_PASSWORD'))) {
-  $config['search_api.server.solr_server']['backend_config']['connector_config']['password'] = getenv('SOLR_DEFAULT_SERVER_PASSWORD');
+  $config['search_api.server.solr']['backend_config']['connector_config']['password'] = getenv('SOLR_DEFAULT_SERVER_PASSWORD');
 }
 
 # Varnish integration
