@@ -18,7 +18,6 @@ drupal-hash-salt-default.txt
 /web/sites/*/settings.local.php
 
 # Ignore user-generated content
-/private
 /web/sites/*/files
 /web/sites/*/translations
 
