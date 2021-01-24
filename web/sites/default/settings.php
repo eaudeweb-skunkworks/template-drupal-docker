@@ -553,8 +553,8 @@ if ($settings['hash_salt']) {
  * See https://www.drupal.org/documentation/modules/file for more information
  * about securing private files.
  */
-if (!empty(getenv('DRUPAL_PRIVATE_FILES_DEFAULT_PATH'))) {
-  $settings['file_private_path'] = getenv('DRUPAL_PRIVATE_FILES_DEFAULT_PATH');
+if (!empty(getenv('DRUPAL_PRIVATE_FILES_PATH'))) {
+  $settings['file_private_path'] = getenv('DRUPAL_PRIVATE_FILES_PATH');
 }
 
 /**
@@ -911,6 +911,12 @@ if (!empty(getenv('MEMCACHE_ACTIVE'))) {
   $settings['cache']['bins']['rest'] = 'cache.backend.memcache';
   $settings['cache']['bins']['signal'] = 'cache.backend.memcache';
   $settings['cache']['bins']['toolbar'] = 'cache.backend.memcache';
+}
+
+if (!empty(getenv('DRUPAL_ENVIRONMENT_INDICATOR_NAME'))) {
+  $config['environment_indicator.indicator']['bg_color'] = getenv('DRUPAL_ENVIRONMENT_INDICATOR_BG_COLOR');
+  $config['environment_indicator.indicator']['fg_color'] = getenv('DRUPAL_ENVIRONMENT_INDICATOR_FG_COLOR');
+  $config['environment_indicator.indicator']['name'] = getenv('DRUPAL_ENVIRONMENT_INDICATOR_NAME');
 }
 
 if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {

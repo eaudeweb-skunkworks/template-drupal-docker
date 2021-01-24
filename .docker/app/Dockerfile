@@ -3,6 +3,7 @@ FROM cristiroma/nginx-php-fpm:php73
 COPY .docker/app/heavy-lifter.conf /etc/nginx/conf.d/snippets/heavy-lifter.conf
 COPY load.environment.php composer.json composer.lock RoboFile.php /usr/share/nginx/html/
 COPY config config
+COPY scripts scripts
 COPY web web
 # Workaround until https://helpdesk.eaudeweb.ro/issues/9184 is fixed
 COPY example.robo.yml robo.yml
