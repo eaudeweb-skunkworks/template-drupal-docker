@@ -5,6 +5,9 @@
 
 # Development environment
 .idea/
+robo.yml
+*.sql
+*.sql.gz
 
 # Deployment
 .env

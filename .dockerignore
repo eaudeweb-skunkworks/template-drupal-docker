@@ -6,7 +6,7 @@ web/.csslintrc
 web/.eslintignore
 web/.eslintrc.json
 web/.ht.router.php
-web/*/node_modules
+/web/themes/*/*/node_modules
 web/core
 web/sites/default/files
 web/themes/README.txt
