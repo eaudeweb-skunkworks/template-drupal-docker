@@ -1,12 +1,13 @@
 FROM cristiroma/nginx-php-fpm:php73
 
 COPY .docker/app/heavy-lifter.conf /etc/nginx/conf.d/snippets/heavy-lifter.conf
+COPY example.robo.yml robo.yml
 COPY load.environment.php composer.json composer.patches.json composer.lock RoboFile.php /usr/share/nginx/html/
 COPY config config
+COPY drush drush
+COPY patches patches
 COPY scripts scripts
 COPY web web
-# Workaround until https://helpdesk.eaudeweb.ro/issues/9184 is fixed
-COPY example.robo.yml robo.yml
 
 # We need sudo for CRON, .env for composer errors
 RUN composer self-update --2 && composer install && touch .env && apk add sudo
