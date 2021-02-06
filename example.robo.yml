@@ -17,9 +17,11 @@ sites:
         source: https://example.com/sites/default/files/heavy-lifter/files.tar.gz
     site:
       update:
-        excluded_commands: []
-        extra_commands : []
+        excluded_commands:
+          - locale:check
+          - locale:update
+        extra_commands: []
       develop:
-        admin_username: username
+        admin_username: drupal_username@email.com
         config_split: FALSE
         modules: []
